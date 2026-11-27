@@ -20,13 +20,13 @@ Sources: Reuters, AP, AFP, CNN, WSJ. Events of 26 November 2026.
 
 ## How it runs
 
-`main.py` (Python 3 + Pillow) draws the image programmatically and writes `entry.png` next to itself:
+`main.ts` (Node 22, standard library only) is the entrypoint: it validates `entry.png` — PNG signature, exactly 1024×1024 pixels, at most 1 MiB — and copies it to the output directory (`/output`, or `$MAKEFUN_OUTPUT_DIR` outside the grader's container):
 
 ```sh
-python3 main.py
+node main.ts
 ```
 
-The output is `entry.png` — a 1024×1024 PNG, under 1 MiB.
+The image itself was drawn programmatically with Python and Pillow during the build session; the resulting `entry.png` is committed beside the entrypoint.
 
 ## License
 
